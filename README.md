@@ -1,11 +1,13 @@
-# NASA to MARS
 
+# NASA to MARS
+![](https://github.com/QuintyHH/NASA-to-MARS-next.js/blob/main/public/assets/images/missiontomars.PNG)
 ## Table of contents
 
 - [Prerequisites](#prerequisites)
 - [Installation](#installation)
 - [Usage](#usage)
 - [About](#about)
+- [To-Do's](#to-dos)
 
 ## Prerequisites
 
@@ -44,15 +46,21 @@ npm run build
 
 ## About
 
+This project was built using Vanilla [Next.js](https://nextjs.org/) as a showcase.
+Based on an uploaded file, a few Mars rovers are spawned and they roam around the grid, based on values from said file.
+
+### Grid Size
+
+A user can update the grid (aka work area) by setting a new width and/or height and clicking the `Update Grid` button.
+These fields are validated, and require a NUMBER between 0 and 101, not inclusive. Initially, I built this to scale to the user's screen, but animations got wonky, so I just set a cell size to 40 pixels.
+
+### Current Mode
+
+I wasn't really sure if I should build the rovers to roam one after the other on a move-per-move basis (ex: Rover1, Rover2, Rover1, Rover2, etc..) or one after the others before it finished all their moves (ex: Rover1, Rover1, Rover1, Rover1, Rover2, Rover2, Rover2, Rover2 ). So the user can choose which mode they preffer.
+  - Sequential: This mode allows the rovers to move in a R1-R1-R1-R2-R2-R2 pattern.
+  - Parallel: This mode allows the rovers to move in a R1-R2-R1-R2-R1-R2 pattern.
+
+## To-Do's
+
 If I had more time, I would abstract the styles away. Normally, I would use a combination of Material-UI and Styled-components, but in this case, I went full vanilla.
-
-### Single page application style
-
-When you're building a single page app or website, there is no point in having the style sheets loaded from an external file and I'll explain why: the point of loading external style sheets is to allow the browser to cache those files and once you visit another web page of the same website, instead of making another request(s) for the style sheet file(s) to the server and having to download them, if there is no change, the browser will load them from the local drive. In a single page, there is no other page to go to therefore the external file technique doesn't apply.
-
-### Multi page application style
-
-In this scenario you can have either both **_embed_** and external or just external. The most common scenario is to have only one external style sheet file to be loaded and most of the time that's just fine.
-
-If you want to improve your SEO and user experience even further, I strongly recommend to use a combination of both **_embed_** and external. The **_embed_** style sheet should only contain the minimum amount of styles for the initial visible part of the page to render. The rest of the styles can be put in the external CSS file.
-
+At the time of writing this, I didn't have enough time to build the Unit Tests, hopefully I will do so soon.
