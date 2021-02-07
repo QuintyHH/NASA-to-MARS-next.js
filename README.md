@@ -76,10 +76,26 @@ Once the grid is set, the mode is chosen, and routes have been established, ther
 This will allow the rovers to go on their merry ways.
 Once a mission has been started, most of the UI gets disabled, but of course, you can still abort mission mid-way!
 
+
+### Event Validation and Snackbar
+
+Throughout the mission, ther will be various events (such as Mission finished succesfully!) that will trigger on-screen event validation messages.
+
 ## To-Do's
 
 - If I had more time, I would abstract the styles away in separate files. 
 - At the time of writing this, I didn't have enough time to build the Unit Tests, hopefully I will do so soon.
 - Create a Manual navigation mode. Fairly simple to do, but time was limited.
 
+## Limitations
 
+Normally, I would use a suite of modules for Quality of Life.
+- redux : Fairly obvious, state management was instead done via the useContext hook.
+- axios : Better alternative to fetch, would have allowed some advanced configuration.
+- saga : Sagas as middleware would have allowed for more advanced state control, and event watchers.
+- styled-components : My preffered method of applying styles.
+- material-ui : Prebuilt input fields and icons would have made life better and UI prettier.
+- formik : Form control, error handling etc.
+- yup : Validation for formik, would have been easier to validate input fields.
+- react-testing-library : Alternative to Enzyme, quality of life.
+- prop-types : Prop validation, but it turns out, for this particular project, I didn't use too many props.
