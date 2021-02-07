@@ -1,5 +1,3 @@
-![](https://github.com/marianzburlea/pug-starter/blob/995a63f1f10c3ec7112941e6c77a95330557ef16/gulp/arrow-flashing.gif) ![](https://github.com/marianzburlea/pug-starter/blob/995a63f1f10c3ec7112941e6c77a95330557ef16/gulp/arrow-flashing.gif) ![](https://github.com/marianzburlea/pug-starter/blob/995a63f1f10c3ec7112941e6c77a95330557ef16/gulp/arrow-flashing.gif)
-
 # NASA to MARS
 
 ## Table of contents
@@ -7,7 +5,7 @@
 - [Prerequisites](#prerequisites)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Style](#style)
+- [About](#about)
 
 ## Prerequisites
 
@@ -44,9 +42,9 @@ npm run build
 ```
 
 
-## Style
+## About
 
-The project supports both **_embed_** and **_external_** style sheets. You can have none, one or the other, or both of them.
+If I had more time, I would abstract the styles away. Normally, I would use a combination of Material-UI and Styled-components, but in this case, I went full vanilla.
 
 ### Single page application style
 
