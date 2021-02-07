@@ -1,0 +1,15 @@
+export const TRANSPARENT = 'transparent'
+export const WHITE = 'white'
+export const BLACK = 'black'
+export const RED = '#ff0000'
+export const BLUE = '#4487c7'
+export const BLUE_SECONDARY = '#2d7fbb'
+export const YELLOW_PRIMARY = '#efcb1b'
+export const YELLOW_SECONDARY = '#fcf5d1'
+export const GRAY = '#c2c2c2'
+export const GRAY_SECONDARY = '#7d7d7d'
+export const GREEN = '#60c090'
+export const MAIN_GRADIENT =
+  'linear-gradient(45deg,  rgba(1, 27, 52, 1) 0%,rgba(65, 132, 196, 1) 100%)'
+export const BLACK_GRADIENT =
+  'linear-gradient(180deg,  rgba(50, 50, 50, 0.7) 0%,rgba(50, 50, 50, 0.3) 100%)'
