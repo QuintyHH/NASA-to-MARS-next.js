@@ -8,6 +8,9 @@
 - [Usage](#usage)
 - [About](#about)
 - [To-Do's](#to-dos)
+- [Limitations](#limitations)
+
+## [WIP: React Version](https://github.com/QuintyHH/NASA-to-MARS-React-Node) This was my initial project, abandoned so I can use Next.js. Browsing the code would show how I would have used the libraries mentioned at [Limitations](#limitations)
 
 ## Prerequisites
 
@@ -99,3 +102,5 @@ Normally, I would use a suite of modules for Quality of Life.
 - yup : Validation for formik, would have been easier to validate input fields.
 - react-testing-library : Alternative to Enzyme, quality of life.
 - prop-types : Prop validation, but it turns out, for this particular project, I didn't use too many props.
+
+You can check out the code with these libs included if you navigate to [the top](#prerequisites).
