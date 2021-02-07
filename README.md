@@ -43,7 +43,6 @@ To build the project for production use:
 npm run build
 ```
 
-
 ## About
 
 This project was built using Vanilla [Next.js](https://nextjs.org/) as a showcase.
@@ -59,8 +58,28 @@ These fields are validated, and require a NUMBER between 0 and 101, not inclusiv
 I wasn't really sure if I should build the rovers to roam one after the other on a move-per-move basis (ex: Rover1, Rover2, Rover1, Rover2, etc..) or one after the others before it finished all their moves (ex: Rover1, Rover1, Rover1, Rover1, Rover2, Rover2, Rover2, Rover2 ). So the user can choose which mode they preffer.
   - Sequential: This mode allows the rovers to move in a R1-R1-R1-R2-R2-R2 pattern.
   - Parallel: This mode allows the rovers to move in a R1-R2-R1-R2-R1-R2 pattern.
+  
+ Once a mode is chosen, a user can commit by clicking the `Update Mode` button.
+  
+### File Manager
+
+A user can opt to either upload a new routes file (it needs to somewhat respect the file formatting), or reload the last file run.
+By default, the program comes with the default `movements.csv` file already preloaded.
+
+### The Console
+
+The console on the left side of the screen logs the activity of each rover.
+
+### Mission Control
+
+Once the grid is set, the mode is chosen, and routes have been established, there is only one thing left. Launch the mission!
+This will allow the rovers to go on their merry ways.
+Once a mission has been started, most of the UI gets disabled, but of course, you can still abort mission mid-way!
 
 ## To-Do's
 
-If I had more time, I would abstract the styles away. Normally, I would use a combination of Material-UI and Styled-components, but in this case, I went full vanilla.
-At the time of writing this, I didn't have enough time to build the Unit Tests, hopefully I will do so soon.
+- If I had more time, I would abstract the styles away in separate files. 
+- At the time of writing this, I didn't have enough time to build the Unit Tests, hopefully I will do so soon.
+- Create a Manual navigation mode. Fairly simple to do, but time was limited.
+
+
