@@ -18,13 +18,13 @@ describe('Mission - The Home Page', () => {
     expect(useCustomSelector).toHaveBeenCalled()
   })
 
-  it('renders UI without crashing', () => {
+  it('render children without crashing', () => {
     render(<Mission />)
     expect(screen.getByText('Mission to MARS')).toBeInTheDocument()
   })
 
-  it('matches expected snapshot', () => {
-    let testedUnit = render(<Mission />)
+  it('match expected snapshot', () => {
+    const testedUnit = render(<Mission />)
     expect(testedUnit).toMatchSnapshot()
   })
 })
