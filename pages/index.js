@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import { useEffect } from 'react'
 import { useCustomSelector } from '../store/ContextProvider'
 import { MarsMap } from '../components/MarsMap'
 import { SideMenu } from '../components/SideMenu'

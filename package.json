@@ -1,14 +1,21 @@
 {
-  "name": "learn-starter",
+  "name": "nasa-to-mars",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "scripts": {
     "dev": "node server.js",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "test": "jest"
   },
   "dependencies": {
+    "@testing-library/dom": "^7.29.4",
+    "@testing-library/jest-dom": "^5.11.9",
+    "@testing-library/react": "^11.2.5",
+    "babel-jest": "^26.6.3",
     "express": "^4.17.1",
+    "jest": "^26.6.3",
+    "jest-dom": "^4.0.0",
     "next": "^10.0.0",
     "react": "17.0.1",
     "react-dom": "17.0.1"
