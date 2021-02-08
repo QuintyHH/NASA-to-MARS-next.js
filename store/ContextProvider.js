@@ -13,7 +13,7 @@ export const missionInitState = {
     width: 30,
     cellSide: 40,
   },
-  currentRover: '',
+  currentRover: { name: '', index: 0 },
   currentMove: 0,
 }
 

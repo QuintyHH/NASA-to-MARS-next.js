@@ -21,7 +21,10 @@ import actions from '../constants/actions'
 
 describe('All the mission actions', () => {
   const data = 'testData'
-
+  const mockRover = {
+    name: 'name',
+    index: 0,
+  }
   it('should create an action to reset mission', () => {
     expect(resetMission()).toEqual({
       type: actions.RESET_MISSION,
@@ -57,9 +60,9 @@ describe('All the mission actions', () => {
   })
 
   it('should create an action to set current rover', () => {
-    expect(setCurrentRover(data)).toEqual({
+    expect(setCurrentRover(mockRover)).toEqual({
       type: actions.SET_CURRENT_ROVER,
-      payload: data,
+      payload: mockRover,
     })
   })
 

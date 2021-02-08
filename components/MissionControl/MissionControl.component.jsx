@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 import { useCustomSelector } from '../../store/ContextProvider'
 import { startLoading, stopLoading, addNotification } from '../../actions/web'
 import {
@@ -19,7 +19,6 @@ export const MissionControl = () => {
     setMissionState,
     setWebState,
   } = useCustomSelector()
-  const [roverIndex, setRoverIndex] = useState(0)
   const disabledState = !missionState.rovers.length
   //checking to see if all rovers are 'DONE'
   const missionDone =
@@ -38,22 +37,44 @@ export const MissionControl = () => {
       /*we use modulo to iterate through the rovers array resetting the 
       index once it goes over rover array length, and pick the next rover in line 
       
-      we use optional chaining to escape cases where the setTimeout is causing 
-      issues with updating the component level state 
+      in this case, modulo will return -1 if currentMove is 0, 
+      so we need to escape the case by defaulting to 0
+
+      we use optional chaining because the async function throws off our reducer updates
       */
-      const targetRover =
-        missionState.rovers[(missionState.currentMove - 1) % roversLoaded]
+      const targetIndex =
+        (missionState.currentMove - 1) % roversLoaded < 0
+          ? 0
+          : (missionState.currentMove - 1) % roversLoaded
+
+      const targetRover = missionState.rovers[targetIndex]
       if (targetRover?.status !== status.DONE) {
-        setMissionState(setCurrentRover(targetRover?.name))
+        setMissionState(
+          setCurrentRover({
+            ...missionState.currentRover,
+            name: targetRover.name,
+          })
+        )
       }
     }
 
     if (roversLoaded && missionState.mode === mode.SEQUENTIAL) {
-      const targetRover = missionState.rovers[roverIndex]
+      const targetRover = missionState.rovers[missionState.currentRover.index]
       if (targetRover?.status !== status.DONE) {
-        setMissionState(setCurrentRover(targetRover?.name))
-      } else if (roverIndex < missionState.rovers.length) {
-        setRoverIndex(roverIndex + 1)
+        setMissionState(
+          setCurrentRover({
+            name: targetRover?.name,
+            index: missionState.currentRover.index,
+          })
+        )
+      } else if (missionState.currentRover.index < missionState.rovers.length) {
+        setMissionState(
+          setCurrentRover({
+            name:
+              missionState.rovers[missionState.currentRover.index + 1]?.name,
+            index: missionState.currentRover.index + 1,
+          })
+        )
       }
     }
 

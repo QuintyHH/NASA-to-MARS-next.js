@@ -24,9 +24,9 @@ export const updateMode = (mode) => ({
   payload: mode,
 })
 
-export const setCurrentRover = (roverName) => ({
+export const setCurrentRover = (rover) => ({
   type: actions.SET_CURRENT_ROVER,
-  payload: roverName,
+  payload: rover,
 })
 
 export const setCurrentMove = (moveCount) => ({

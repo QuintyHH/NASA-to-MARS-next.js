@@ -1,6 +1,6 @@
 import actions from '../constants/actions'
 import { missionInitState } from '../store/ContextProvider'
-import { status } from '../constants/mission'
+
 const missionReducer = (state = missionInitState, action) => {
   switch (action.type) {
     case actions.UPDATE_MISSION:

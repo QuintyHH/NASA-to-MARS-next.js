@@ -6,8 +6,8 @@ import { status, mode } from '../constants/mission'
 describe('Mission reducer', () => {
   const mockState = {
     rovers: [
-      { name: 'testName1', position: 1 },
-      { name: 'testName2', position: 2 },
+      { name: 'testName1', index: 1 },
+      { name: 'testName2', index: 2 },
     ],
     log: [{ notification: 'test' }],
     mode: mode.PARALLEL,
@@ -27,13 +27,13 @@ describe('Mission reducer', () => {
   }
 
   const mockRoversOnly = [
-    { name: 'testName1', position: 1 },
-    { name: 'testName2', position: 2 },
+    { name: 'testName1', index: 1 },
+    { name: 'testName2', index: 2 },
   ]
 
   const mockSpecificRover = {
     name: 'testName2',
-    position: 3,
+    index: 3,
   }
 
   const mockLogEntry = 'New log entry'
@@ -92,8 +92,8 @@ describe('Mission reducer', () => {
 
   it('should handle UPDATE_ROVER', () => {
     const expected = [
-      { name: 'testName1', position: 1 },
-      { name: 'testName2', position: 3 },
+      { name: 'testName1', index: 1 },
+      { name: 'testName2', index: 3 },
     ]
     expect(
       missionReducer(mockState, {
@@ -132,15 +132,14 @@ describe('Mission reducer', () => {
   })
 
   it('should handle SET_CURRENT_ROVER', () => {
-    const expected = 'TestRover'
     expect(
       missionReducer(missionInitState, {
         type: actions.SET_CURRENT_ROVER,
-        payload: expected,
+        payload: mockSpecificRover,
       })
     ).toEqual({
       ...missionInitState,
-      currentRover: expected,
+      currentRover: mockSpecificRover,
     })
   })
 

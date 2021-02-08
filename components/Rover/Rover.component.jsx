@@ -97,7 +97,7 @@ export const Rover = ({ roverInfo }) => {
 
   useEffect(() => {
     if (
-      currentRover === roverInfo.name &&
+      currentRover?.name === roverInfo.name &&
       roverInfo.status !== roverStatus.DONE
     ) {
       if (currentLocation.moveCount < roverInfo.route.length) {
