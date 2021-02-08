@@ -1,0 +1,432 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Mission - The Home Page matches expected snapshot 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="jsx-1963716327"
+      >
+        <div
+          class="jsx-1963716327 container"
+        >
+          <div
+            class="jsx-2671631489 the-map"
+          >
+            <div
+              class="jsx-778268069 console-wrapper"
+            >
+              CONSOLE
+            </div>
+          </div>
+          <div
+            class="jsx-2279107280 sidemenu-wrapper"
+          >
+            <div
+              class="jsx-4204548561 header-wrapper"
+            >
+              <div
+                class="jsx-4204548561 nasa-logo"
+              />
+              <div
+                class="jsx-4204548561 sidemenu-title"
+              >
+                Mission to MARS
+              </div>
+            </div>
+            <div
+              class="grid-control-wrapper"
+            >
+              <div
+                class="jsx-887983113 input-wrapper"
+              >
+                <label
+                  class="jsx-887983113 label"
+                  for="input-field"
+                >
+                  CURRENT GRID SIZE
+                </label>
+                <input
+                  class="jsx-887983113 input-field"
+                  disabled=""
+                  value="30 x 20"
+                />
+              </div>
+              <form
+                autocomplete="off"
+              >
+                <div
+                  class="jsx-741306690 input-wrapper"
+                >
+                  <label
+                    class="jsx-741306690 label"
+                    for="input-field"
+                  >
+                    Width
+                  </label>
+                  <input
+                    class="jsx-741306690 input-field"
+                    value="30"
+                  />
+                </div>
+                <div
+                  class="jsx-741306690 input-wrapper"
+                >
+                  <label
+                    class="jsx-741306690 label"
+                    for="input-field"
+                  >
+                    Height
+                  </label>
+                  <input
+                    class="jsx-741306690 input-field"
+                    value="20"
+                  />
+                </div>
+              </form>
+              <button
+                class="jsx-2446794456 button"
+                type="button"
+              >
+                UPDATE GRID
+              </button>
+            </div>
+            <div
+              class="mode-control-wrapper"
+            >
+              <div
+                class="jsx-887983113 input-wrapper"
+              >
+                <label
+                  class="jsx-887983113 label"
+                  for="input-field"
+                >
+                  CURRENT MODE
+                </label>
+                <input
+                  class="jsx-887983113 input-field"
+                  disabled=""
+                  value="SEQUENTIAL"
+                />
+              </div>
+              <form
+                autocomplete="off"
+              >
+                <div
+                  class="jsx-1615448515 input-wrapper"
+                >
+                  <label
+                    class="jsx-1615448515 label"
+                    for="input-radio"
+                  >
+                    SEQUENTIAL
+                  </label>
+                  <input
+                    checked=""
+                    class="jsx-1615448515 input-radio"
+                    type="radio"
+                    value="SEQUENTIAL"
+                  />
+                </div>
+                <div
+                  class="jsx-1615448515 input-wrapper"
+                >
+                  <label
+                    class="jsx-1615448515 label"
+                    for="input-radio"
+                  >
+                    PARALLEL
+                  </label>
+                  <input
+                    class="jsx-1615448515 input-radio"
+                    type="radio"
+                    value="PARALLEL"
+                  />
+                </div>
+              </form>
+              <button
+                class="jsx-2446794456 button"
+                type="button"
+              >
+                UPDATE MODE
+              </button>
+            </div>
+            <div
+              class="file-control-wrapper"
+            >
+              <label
+                class="jsx-2177008914 button"
+                for="file-upload"
+              >
+                UPLOAD NEW ROUTES
+              </label>
+              <input
+                accept=".csv"
+                class="jsx-2177008914 "
+                hidden=""
+                id="file-upload"
+                type="file"
+              />
+              <button
+                class="jsx-684200985 button"
+                type="button"
+              >
+                RELOAD LAST MISSION
+              </button>
+            </div>
+            <div
+              class="file-control-wrapper"
+            >
+              <button
+                class="jsx-2349070586 button"
+                disabled=""
+                type="button"
+              >
+                MISSION FILE NOT LOADED YET
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="jsx-1963716327"
+    >
+      <div
+        class="jsx-1963716327 container"
+      >
+        <div
+          class="jsx-2671631489 the-map"
+        >
+          <div
+            class="jsx-778268069 console-wrapper"
+          >
+            CONSOLE
+          </div>
+        </div>
+        <div
+          class="jsx-2279107280 sidemenu-wrapper"
+        >
+          <div
+            class="jsx-4204548561 header-wrapper"
+          >
+            <div
+              class="jsx-4204548561 nasa-logo"
+            />
+            <div
+              class="jsx-4204548561 sidemenu-title"
+            >
+              Mission to MARS
+            </div>
+          </div>
+          <div
+            class="grid-control-wrapper"
+          >
+            <div
+              class="jsx-887983113 input-wrapper"
+            >
+              <label
+                class="jsx-887983113 label"
+                for="input-field"
+              >
+                CURRENT GRID SIZE
+              </label>
+              <input
+                class="jsx-887983113 input-field"
+                disabled=""
+                value="30 x 20"
+              />
+            </div>
+            <form
+              autocomplete="off"
+            >
+              <div
+                class="jsx-741306690 input-wrapper"
+              >
+                <label
+                  class="jsx-741306690 label"
+                  for="input-field"
+                >
+                  Width
+                </label>
+                <input
+                  class="jsx-741306690 input-field"
+                  value="30"
+                />
+              </div>
+              <div
+                class="jsx-741306690 input-wrapper"
+              >
+                <label
+                  class="jsx-741306690 label"
+                  for="input-field"
+                >
+                  Height
+                </label>
+                <input
+                  class="jsx-741306690 input-field"
+                  value="20"
+                />
+              </div>
+            </form>
+            <button
+              class="jsx-2446794456 button"
+              type="button"
+            >
+              UPDATE GRID
+            </button>
+          </div>
+          <div
+            class="mode-control-wrapper"
+          >
+            <div
+              class="jsx-887983113 input-wrapper"
+            >
+              <label
+                class="jsx-887983113 label"
+                for="input-field"
+              >
+                CURRENT MODE
+              </label>
+              <input
+                class="jsx-887983113 input-field"
+                disabled=""
+                value="SEQUENTIAL"
+              />
+            </div>
+            <form
+              autocomplete="off"
+            >
+              <div
+                class="jsx-1615448515 input-wrapper"
+              >
+                <label
+                  class="jsx-1615448515 label"
+                  for="input-radio"
+                >
+                  SEQUENTIAL
+                </label>
+                <input
+                  checked=""
+                  class="jsx-1615448515 input-radio"
+                  type="radio"
+                  value="SEQUENTIAL"
+                />
+              </div>
+              <div
+                class="jsx-1615448515 input-wrapper"
+              >
+                <label
+                  class="jsx-1615448515 label"
+                  for="input-radio"
+                >
+                  PARALLEL
+                </label>
+                <input
+                  class="jsx-1615448515 input-radio"
+                  type="radio"
+                  value="PARALLEL"
+                />
+              </div>
+            </form>
+            <button
+              class="jsx-2446794456 button"
+              type="button"
+            >
+              UPDATE MODE
+            </button>
+          </div>
+          <div
+            class="file-control-wrapper"
+          >
+            <label
+              class="jsx-2177008914 button"
+              for="file-upload"
+            >
+              UPLOAD NEW ROUTES
+            </label>
+            <input
+              accept=".csv"
+              class="jsx-2177008914 "
+              hidden=""
+              id="file-upload"
+              type="file"
+            />
+            <button
+              class="jsx-684200985 button"
+              type="button"
+            >
+              RELOAD LAST MISSION
+            </button>
+          </div>
+          <div
+            class="file-control-wrapper"
+          >
+            <button
+              class="jsx-2349070586 button"
+              disabled=""
+              type="button"
+            >
+              MISSION FILE NOT LOADED YET
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
