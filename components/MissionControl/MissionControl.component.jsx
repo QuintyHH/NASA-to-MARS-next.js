@@ -10,6 +10,7 @@ import {
 import { SimpleButton } from '../Reusables'
 import { status, mode, roverStatus } from '../../constants/mission'
 import config from './MissionControl.config'
+import { sleep } from '../../utils/sleep'
 
 export const MissionControl = () => {
   const {
@@ -31,7 +32,7 @@ export const MissionControl = () => {
   }, [missionState.rovers])
 
   /* here we decide which rover should go next and we also keep track of current move count */
-  useEffect(() => {
+  useEffect(async () => {
     const roversLoaded = missionState.rovers.length
     if (roversLoaded && missionState.mode === mode.PARALLEL) {
       /*we use modulo to iterate through the rovers array resetting the 
@@ -56,11 +57,10 @@ export const MissionControl = () => {
       }
     }
 
-    setTimeout(() => {
-      if (missionState.status === status.ACTIVE) {
-        setMissionState(setCurrentMove(missionState.currentMove + 1))
-      }
-    }, config.roverMoveSpeed)
+    await sleep(config.roverMoveSpeed)
+    if (missionState.status === status.ACTIVE) {
+      setMissionState(setCurrentMove(missionState.currentMove + 1))
+    }
   }, [missionState.currentMove])
 
   /*here we check to see if the mission has been set to active or done. if active, 

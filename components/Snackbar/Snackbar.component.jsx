@@ -3,17 +3,16 @@ import { useCustomSelector } from '../../store/ContextProvider'
 import { removeNotification } from '../../actions/web'
 import { WHITE, RED, GREEN } from '../../constants/colors'
 import config from './Snackbar.config'
-
+import { sleep } from '../../utils/sleep'
 const Snackbar = () => {
   const {
     webState: { notification },
     setWebState,
   } = useCustomSelector()
 
-  useEffect(() => {
-    setTimeout(() => {
-      setWebState(removeNotification())
-    }, config.timeout)
+  useEffect(async () => {
+    await sleep(config.timeout)
+    setWebState(removeNotification())
   }, [notification])
 
   const { message, type } = notification

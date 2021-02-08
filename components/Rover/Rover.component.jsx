@@ -14,12 +14,9 @@ export const Rover = ({ roverInfo }) => {
     setWebState,
   } = useCustomSelector()
 
-  const [currentLocation, setCurrentLocation] = useState({
-    moveCount: roverInfo.initialPosition.moveCount,
-    orientation: roverInfo.initialPosition.orientation,
-    xAxis: roverInfo.initialPosition.xAxis,
-    yAxis: roverInfo.initialPosition.yAxis,
-  })
+  const [currentLocation, setCurrentLocation] = useState(
+    roverInfo.initialPosition
+  )
 
   const displayLog = () =>
     `${roverInfo.name} (X:${currentLocation.xAxis} Y:${currentLocation.yAxis})`

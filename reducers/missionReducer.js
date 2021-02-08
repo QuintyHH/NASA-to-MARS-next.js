@@ -15,13 +15,9 @@ const missionReducer = (state = missionInitState, action) => {
       }
     case actions.RESET_MISSION:
       return {
+        ...missionInitState,
         mode: state.mode,
         grid: state.grid,
-        rovers: [],
-        log: [],
-        currentRover: '',
-        currentMove: 0,
-        status: status.INACTIVE,
       }
 
     case actions.ADD_LOG:

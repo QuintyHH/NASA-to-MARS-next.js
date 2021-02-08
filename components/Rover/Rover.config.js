@@ -1,5 +1,4 @@
 export default {
-  roverSpeed: 500,
   notification: {
     fail: {
       type: 'fail',
