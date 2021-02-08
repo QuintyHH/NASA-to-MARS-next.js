@@ -60,7 +60,7 @@ export const MissionControl = () => {
       if (missionState.status === status.ACTIVE) {
         setMissionState(setCurrentMove(missionState.currentMove + 1))
       }
-    }, 500)
+    }, config.roverMoveSpeed)
   }, [missionState.currentMove])
 
   /*here we check to see if the mission has been set to active or done. if active, 
