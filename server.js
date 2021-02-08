@@ -31,7 +31,7 @@ const readFile = (res) => {
     if (data) {
       res.send(constructMission(data))
     } else {
-      console.err(err)
+      console.log(err)
     }
   })
 }
