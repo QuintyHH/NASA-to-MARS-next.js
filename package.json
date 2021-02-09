@@ -6,7 +6,8 @@
     "dev": "node server.js",
     "build": "next build",
     "start": "next start",
-    "test": "jest"
+    "test": "jest",
+    "test:coverage": "jest --coverage"
   },
   "dependencies": {
     "@testing-library/dom": "^7.29.4",
