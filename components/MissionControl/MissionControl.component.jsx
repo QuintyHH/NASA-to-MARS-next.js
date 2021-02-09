@@ -15,85 +15,84 @@ import { sleep } from '../../utils/sleep'
 export const MissionControl = () => {
   const {
     webState,
-    missionState,
+    missionState: {
+      rovers,
+      mode: currentMode,
+      currentMove,
+      currentRover,
+      status: currentStatus,
+    },
     setMissionState,
     setWebState,
   } = useCustomSelector()
-  const disabledState = !missionState.rovers.length
+
+  //checking to see if all rovers are loaded
+  const roversLoaded = rovers.length
+
   //checking to see if all rovers are 'DONE'
   const missionDone =
-    missionState.rovers.length &&
-    missionState.rovers.filter((rover) => rover.status === roverStatus.DONE)
-      .length === missionState.rovers.length
+    roversLoaded &&
+    rovers.filter((rover) => rover.status === roverStatus.DONE).length ===
+      roversLoaded
 
-  useEffect(() => {
-    missionDone && setMissionState(updateMissionStatus(status.DONE))
-  }, [missionState.rovers])
-
-  /* here we decide which rover should go next and we also keep track of current move count */
+  // here we decide which rover should go next and we also keep track of current move count
   useEffect(async () => {
-    const roversLoaded = missionState.rovers.length
-    if (roversLoaded && missionState.mode === mode.PARALLEL) {
+    if (roversLoaded && !missionDone && currentMode === mode.PARALLEL) {
       /*we use modulo to iterate through the rovers array resetting the 
       index once it goes over rover array length, and pick the next rover in line 
       
       in this case, modulo will return -1 if currentMove is 0, 
       so we need to escape the case by defaulting to 0
-
-      we use optional chaining because the async function throws off our reducer updates
       */
-      const targetIndex =
-        (missionState.currentMove - 1) % roversLoaded < 0
-          ? 0
-          : (missionState.currentMove - 1) % roversLoaded
-
-      const targetRover = missionState.rovers[targetIndex]
-      if (targetRover?.status !== status.DONE) {
+      const targetIndex = Math.max((currentMove - 1) % roversLoaded, 0)
+      const targetRover = rovers[targetIndex]
+      if (targetRover.status !== status.DONE) {
         setMissionState(
           setCurrentRover({
-            ...missionState.currentRover,
+            ...currentRover,
             name: targetRover.name,
           })
         )
       }
     }
 
-    if (roversLoaded && missionState.mode === mode.SEQUENTIAL) {
-      const targetRover = missionState.rovers[missionState.currentRover.index]
-      if (targetRover?.status !== status.DONE) {
+    if (roversLoaded && !missionDone && currentMode === mode.SEQUENTIAL) {
+      const targetRover = rovers[currentRover.idx]
+      if (targetRover.status !== status.DONE) {
         setMissionState(
           setCurrentRover({
-            name: targetRover?.name,
-            index: missionState.currentRover.index,
+            ...currentRover,
+            name: targetRover.name,
           })
         )
-      } else if (missionState.currentRover.index < missionState.rovers.length) {
+      } else if (currentRover.idx < roversLoaded) {
         setMissionState(
           setCurrentRover({
-            name:
-              missionState.rovers[missionState.currentRover.index + 1]?.name,
-            index: missionState.currentRover.index + 1,
+            name: rovers[currentRover.idx + 1].name,
+            idx: currentRover.idx + 1,
           })
         )
       }
     }
 
-    await sleep(config.roverMoveSpeed)
-    if (missionState.status === status.ACTIVE) {
-      setMissionState(setCurrentMove(missionState.currentMove + 1))
+    if (roversLoaded && !missionDone && currentStatus === status.ACTIVE) {
+      await sleep(config.roverMoveSpeed)
+      setMissionState(setCurrentMove(currentMove + 1))
+    } else if (roversLoaded && missionDone) {
+      setMissionState(updateMissionStatus(status.DONE))
     }
-  }, [missionState.currentMove])
+  }, [currentMove])
 
   /*here we check to see if the mission has been set to active or done. if active, 
   triggers the other useEffect that updates rovers and rover order */
   useEffect(() => {
     switch (true) {
-      case missionState.status === status.ACTIVE: {
+      case currentStatus === status.ACTIVE: {
         setWebState(startLoading())
-        setMissionState(setCurrentMove(missionState.currentMove + 1))
+        setMissionState(setCurrentMove(currentMove + 1))
         return
       }
-      case missionState.status === status.DONE: {
+      case currentStatus === status.DONE: {
         setWebState(stopLoading())
         setWebState(addNotification(config.notification.success))
         setMissionState(setCurrentMove(0))
@@ -102,30 +101,36 @@ export const MissionControl = () => {
       default:
         return
     }
-  }, [missionState.status])
+  }, [currentStatus])
 
-  const handleResetMission = () => setMissionState(resetMission())
+  const handleResetMission = () => {
+    setMissionState(resetMission())
+    setWebState(stopLoading())
+  }
   const handleLaunch = () => setMissionState(updateMissionStatus(status.ACTIVE))
+  const launchButtonState = () => {
+    return !roversLoaded
+      ? config.disabledText
+      : webState.isLoading
+      ? config.resetMission
+      : missionDone
+      ? config.resetMission
+      : config.launchButton
+  }
 
   return (
     <div className={'file-control-wrapper'}>
       <SimpleButton
-        disabled={disabledState}
+        disabled={!roversLoaded}
         onClick={
           webState.isLoading || missionDone ? handleResetMission : handleLaunch
         }
-        isRed={true}
+        isRed
         width={'100%'}
         height={'100%'}
         square
       >
-        {disabledState
-          ? config.disabledText
-          : webState.isLoading
-          ? config.resetMission
-          : missionDone
-          ? config.resetMission
-          : config.launchButton}
+        {launchButtonState()}
       </SimpleButton>
     </div>
   )
