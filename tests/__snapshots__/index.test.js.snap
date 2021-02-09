@@ -187,6 +187,11 @@ Object {
               </button>
             </div>
           </div>
+          <div
+            class="jsx-1835092058 snackbar"
+          >
+            test
+          </div>
         </div>
       </div>
     </div>
@@ -373,6 +378,11 @@ Object {
               MISSION FILE NOT LOADED YET
             </button>
           </div>
+        </div>
+        <div
+          class="jsx-1835092058 snackbar"
+        >
+          test
         </div>
       </div>
     </div>

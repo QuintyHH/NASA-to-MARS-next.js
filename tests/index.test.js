@@ -10,7 +10,10 @@ jest.mock('../store/ContextProvider')
 describe('Mission - The Home Page', () => {
   useCustomSelector.mockReturnValue({
     missionState: missionInitState,
-    webState: webInitState,
+    webState: {
+      ...webInitState,
+      notification: { type: 'success', message: 'test' },
+    },
   })
 
   it('loading hooks and reducer values', () => {
